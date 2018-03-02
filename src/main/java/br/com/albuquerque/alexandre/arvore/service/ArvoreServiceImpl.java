@@ -1,5 +1,7 @@
 package br.com.albuquerque.alexandre.arvore.service;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,13 +35,34 @@ public class ArvoreServiceImpl implements ArvoreService
 	}
 
 	@Override
-	public List<Arvore> listar() {
-		return arvoreRepository.findAll();
+	public Arvore listar() {
+		List<Arvore> arvores = arvoreRepository.findAll();
+		
+		System.out.println("\n\n");
+		
+		for(Arvore arvore : arvores)
+		{
+			if(arvore.getParentId() == null || arvore.getParentId() == 0)
+			{
+				
+				arvore.setChildren(listarFilhos(arvore.getId()));
+				return arvore;
+			}
+		}
+		
+		return null;
 	}
 
 	@Override
-	public Arvore listarFilhos(Long parentId) {
-		return arvoreRepository.findOne(parentId);
+	public Arvore[] listarFilhos(Long parentId) {
+		
+		Arvore[] nos = arvoreRepository.findByParentId(parentId);
+		
+		for(Arvore no : nos)
+		{
+			no.setChildren(listarFilhos(no.getId()));
+		}
+		
+		return nos;
 	}
-
 }

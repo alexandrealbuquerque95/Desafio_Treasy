@@ -3,6 +3,7 @@ package br.com.albuquerque.alexandre.arvore.resource;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,14 +40,15 @@ public class ArvoreResource {
 		arvoreService.remover(id);
 	}
 	
+//	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/node")
-	public List<Arvore> listar()
+	public Arvore listar()
 	{
 		return arvoreService.listar();
 	}
 	
 	@GetMapping("/node/{parentId}")
-	public Arvore listarFilhos(@PathVariable Long parentId)
+	public Arvore[] listarFilhos(@PathVariable Long parentId)
 	{
 		return arvoreService.listarFilhos(parentId);
 	}

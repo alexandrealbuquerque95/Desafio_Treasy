@@ -12,8 +12,8 @@ public interface ArvoreService {
 	
 	public void remover(Long id);
 	
-	public List<Arvore> listar();
+	public Arvore listar();
 	
-	public Arvore listarFilhos(Long parentId);
+	public Arvore[] listarFilhos(Long parentId);
 
 }

@@ -124,6 +124,11 @@ public class Arvore {
 		return true;
 	}
 
+//	@Override
+//	public int compareTo(Arvore o) {
+//		return this.getCode().compareTo(o.getCode());
+//	}
+
 	
 	
 }
