@@ -123,12 +123,4 @@ public class Arvore {
 			return false;
 		return true;
 	}
-
-//	@Override
-//	public int compareTo(Arvore o) {
-//		return this.getCode().compareTo(o.getCode());
-//	}
-
-	
-	
 }

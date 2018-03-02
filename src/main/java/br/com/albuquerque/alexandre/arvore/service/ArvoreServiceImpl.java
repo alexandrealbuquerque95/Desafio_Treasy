@@ -1,7 +1,5 @@
 package br.com.albuquerque.alexandre.arvore.service;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +35,6 @@ public class ArvoreServiceImpl implements ArvoreService
 	@Override
 	public Arvore listar() {
 		List<Arvore> arvores = arvoreRepository.findAll();
-		
-		System.out.println("\n\n");
 		
 		for(Arvore arvore : arvores)
 		{

@@ -8,7 +8,5 @@ import br.com.albuquerque.alexandre.arvore.model.Arvore;
 public interface ArvoreRepository extends JpaRepository<Arvore, Long> {
 	
 	public Arvore[] findByParentId(Long parentId);
-	
-	
 
 }
